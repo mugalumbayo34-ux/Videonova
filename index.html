@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10101a">
+  <title>VidéoNova AI — Créateur vidéo IA</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">V</span><span>VidéoNova <b>AI</b></span></a>
+    <span class="badge">CRÉATION VIDÉO IA</span>
+  </header>
+
+  <main class="layout">
+    <section class="hero">
+      <p class="eyebrow">DONNE VIE À TES IDÉES</p>
+      <h1>Ton imagination.<br><span>Ton prochain film.</span></h1>
+      <p class="intro">Crée une vidéo à partir d'un texte ou anime une image. Génère un clip, prévisualise-le et télécharge-le.</p>
+    </section>
+
+    <nav class="tabs" aria-label="Types de création">
+      <button class="tab active" data-tab="video">✦ Créer une vidéo</button>
+      <button class="tab" data-tab="film">▣ Créer un film</button>
+    </nav>
+
+    <section id="video-panel" class="panel">
+      <form id="video-form">
+        <label for="prompt">Décris la vidéo que tu veux créer</label>
+        <textarea id="prompt" required minlength="5" maxlength="1500" placeholder="Ex. : Une voiture de sport traverse une ville futuriste sous la pluie, lumière cinématographique, travelling fluide…"></textarea>
+
+        <div class="field-grid">
+          <div>
+            <label for="style">Style visuel</label>
+            <select id="style">
+              <option value="cinematic">Cinématographique</option>
+              <option value="realistic">Réaliste</option>
+              <option value="anime">Anime</option>
+              <option value="fantasy">Fantaisie</option>
+              <option value="commercial">Publicité commerciale</option>
+            </select>
+          </div>
+          <div>
+            <label for="format">Format vidéo</label>
+            <select id="format">
+              <option value="16:9">YouTube / écran (16:9)</option>
+              <option value="9:16">TikTok / Reels / Shorts (9:16)</option>
+              <option value="1:1">Carré (1:1)</option>
+            </select>
+          </div>
+          <div>
+            <label for="duration">Durée du clip</label>
+            <select id="duration">
+              <option value="5">5 secondes</option>
+              <option value="10" selected>10 secondes</option>
+              <option value="15">15 secondes</option>
+              <option value="20">20 secondes</option>
+              <option value="30">30 secondes</option>
+            </select>
+          </div>
+          <div>
+            <label for="resolution">Résolution</label>
+            <select id="resolution">
+              <option value="720p">720p</option>
+              <option value="1080p" selected>1080p</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="upload-box">
+          <label for="image">Photo de départ (facultatif)</label>
+          <input id="image" type="file" accept="image/png,image/jpeg,image/webp">
+          <small>Ajoute une image pour l'animer. Taille maximale : 3 Mo.</small>
+          <img id="image-preview" alt="Aperçu de l’image sélectionnée" hidden>
+        </div>
+
+        <button id="generate-btn" class="primary" type="submit">Générer ma vidéo <span>→</span></button>
+        <p class="notice">La génération utilise un modèle IA externe et peut entraîner des frais sur ton compte Replicate.</p>
+      </form>
+
+      <section id="result" class="result" hidden aria-live="polite">
+        <h2>Résultat</h2>
+        <p id="status-message">Préparation de ta vidéo…</p>
+        <div class="progress-track"><div id="progress-bar"></div></div>
+        <video id="result-video" controls playsinline hidden></video>
+        <a id="download-link" class="download" href="#" download="videonova-video.mp4" hidden>Télécharger la vidéo ↓</a>
+      </section>
+    </section>
+
+    <section id="film-panel" class="panel" hidden>
+      <div class="film-card">
+        <span class="film-icon">▣</span>
+        <h2>Créer un film complet</h2>
+        <p>Prépare un projet composé de plusieurs scènes, puis assemble-les pour créer une histoire cohérente.</p>
+        <div class="film-options">
+          <div><b>Court métrage</b><span>1 à 5 minutes</span></div>
+          <div><b>Film long</b><span>10 à 20 minutes</span></div>
+        </div>
+        <p class="notice">La génération et l’assemblage multi-scènes sont encore à mettre en place. Cette version génère des clips courts ; elle ne prétend pas encore produire un film complet.</p>
+      </div>
+      <div class="price-card">
+        <h3>Tarif prévu</h3>
+        <p class="price">$25 <span>/ film</span></p>
+        <p>Le paiement sécurisé sera ajouté avant l’ouverture au public. Aucun paiement n’est activé dans cette version.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>VidéoNova AI · Prototype en cours de développement</footer>
+  <script src="/app.js"></script>
+</body>
+</html>
